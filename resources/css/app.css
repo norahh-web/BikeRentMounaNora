@@ -9,6 +9,7 @@
 @import './layout/footer.css';
 
 /* Componentes */
+@import './components/logo.css';
 @import './components/card.css';
 @import './components/boton.css';
 @import './components/chip.css';

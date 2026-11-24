@@ -1,1 +1,2 @@
-<img src="{{ asset('images/logo-onyarbizi.svg') }}" alt="OnyarBizi, inicio" width="78" height="48" {{ $attributes }}>
+{{-- Alias de Breeze: redirige al logo propio para no romper vistas que aún lo usen. --}}
+<x-logo {{ $attributes }} />

@@ -1,0 +1,29 @@
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --superficie-pagina: #14121A;
+  --superficie-tarjeta: #211E26;
+  --superficie-cabecera: #14121A;
+  --superficie-hero: var(--color-tinta-2);
+  --texto-principal: #E7DFF2;
+  --texto-suave: #CAC4D5;
+  --texto-acento: #C9BEFF;
+  --borde: #494553;
+  --borde-campo: #948CAE;
+  --foco: var(--color-lima);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --superficie-pagina: #14121A;
+    --superficie-tarjeta: #211E26;
+    --superficie-cabecera: #14121A;
+    --superficie-hero: var(--color-tinta-2);
+    --texto-principal: #E7DFF2;
+    --texto-suave: #CAC4D5;
+    --texto-acento: #C9BEFF;
+    --borde: #494553;
+    --borde-campo: #948CAE;
+    --foco: var(--color-lima);
+  }
+}

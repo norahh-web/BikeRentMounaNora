@@ -40,3 +40,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Rutas de las páginas del diseño (Figma)
+Route::get('/alquiler', [\App\Http\Controllers\AlquilerController::class, 'index'])->name('alquiler');
+Route::view('/nosotros', 'nosotros')->name('nosotros');
+Route::view('/contacto', 'contacto')->name('contacto');
+Route::view('/cuenta', 'cuenta')->name('cuenta');

@@ -11,4 +11,10 @@
   --foco: var(--color-violeta);
   --superficie-hero: var(--color-tinta);
   --borde-campo: var(--color-borde-campo);
+  --superficie-campo: var(--color-blanco);
+  --superficie-deshabilitada: var(--color-gris-deshabilitado);
+  --superficie-exito: var(--color-verde-claro);
+  --superficie-error: var(--color-error-claro);
+  --texto-error: var(--color-error);
+  --foco-sobre-oscuro: var(--color-lima);
 }

@@ -1,0 +1,68 @@
+/* Resumen de la reserva (bici, fecha, horario, duración, precio, total) */
+.resumen {
+  padding: var(--espacio-l);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--superficie-tarjeta);
+  color: var(--texto-principal);
+}
+
+.resumen__titulo {
+  margin-bottom: var(--espacio-m);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+}
+
+.resumen__lista {
+  display: grid;
+  gap: var(--espacio-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resumen__fila {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  margin: 0;
+  font-size: var(--texto-s);
+}
+
+.resumen__fila > :first-child {
+  color: var(--texto-suave);
+}
+
+.resumen__fila > :last-child {
+  margin: 0;
+  font-weight: var(--peso-medio);
+  text-align: right;
+}
+
+.resumen__total {
+  color: var(--texto-acento);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-negrita);
+}
+
+.resumen .boton {
+  width: 100%;
+  margin-top: var(--espacio-m);
+}
+
+.resumen__nota {
+  margin-top: var(--espacio-s);
+  color: var(--texto-suave);
+  font-size: var(--texto-xs);
+}
+
+/* Errores del JS y del servidor (el JS usa el atributo hidden) */
+.resumen__errores {
+  margin: 0 0 var(--espacio-m);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-s);
+  background: var(--superficie-error);
+  color: var(--texto-error);
+  font-size: var(--texto-s);
+  list-style: none;
+}

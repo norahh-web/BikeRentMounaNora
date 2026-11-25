@@ -1,0 +1,8 @@
+/* Tarjeta base: la reutilizan bicicleta-card, reserva-item, cuenta, profile... */
+.card {
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--superficie-tarjeta);
+  color: var(--texto-principal);
+}

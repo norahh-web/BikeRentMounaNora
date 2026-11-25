@@ -1,11 +1,78 @@
+/* Navbar (escritorio) y barra inferior (móvil). Punto de corte: 48rem */
 
-/* Botón de tema: icono centrado en el botón */
+/* ---------- Navbar ---------- */
+.navbar {
+  background: var(--superficie-cabecera);
+  color: var(--texto-sobre-oscuro);
+}
+
+.navbar__contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: var(--espacio-s) var(--espacio-m);
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+}
+
+/* En móvil los enlaces están en la barra inferior */
+.navbar__lista {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__enlace {
+  color: var(--texto-sobre-oscuro);
+  font-size: var(--texto-s);
+  text-decoration: none;
+}
+
+.navbar__enlace:hover {
+  text-decoration: underline;
+}
+
+.navbar__enlace[aria-current='page'] {
+  color: var(--color-lima);
+}
+
+.navbar__acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+:focus-visible {
+  outline-color: var(--foco);
+}
+
+.navbar :focus-visible {
+  outline-color: var(--foco-sobre-oscuro);
+}
+
+/* ---------- Botón de tema (luna / sol) ---------- */
 .boton-tema {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: var(--espacio-s);
+  border: 0;
+  border-radius: var(--radio-pill);
+  background: transparent;
+  color: var(--texto-sobre-oscuro);
   line-height: 1;
+  cursor: pointer;
+}
+
+.boton-tema:hover {
+  background: rgb(255 255 255 / 12%);
 }
 
 .boton-tema span {
@@ -16,6 +83,78 @@
   display: block;
 }
 
+/* hidden gana a "display: flex" de arriba */
 .boton-tema [hidden] {
   display: none;
+}
+
+/* ---------- Barra inferior (móvil) ---------- */
+.barra-inferior {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  border-top: 1px solid var(--borde);
+  background: var(--superficie-tarjeta);
+}
+
+.barra-inferior__lista {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barra-inferior__item {
+  flex: 1;
+}
+
+.barra-inferior__enlace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-s) var(--espacio-xs);
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+
+.barra-inferior__enlace[aria-current='page'] {
+  color: var(--texto-acento);
+}
+
+.barra-inferior__icono {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.barra-inferior__texto {
+  font-size: var(--texto-xs);
+}
+
+/* Deja sitio para que la barra fija no tape el final de la página */
+body {
+  padding-bottom: 4.5rem;
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 48rem) {
+  .navbar__contenedor {
+    padding: var(--espacio-m);
+  }
+
+  .navbar__lista {
+    display: flex;
+    gap: var(--espacio-l);
+  }
+
+  .barra-inferior {
+    display: none;
+  }
+
+  body {
+    padding-bottom: 0;
+  }
 }

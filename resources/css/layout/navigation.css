@@ -1,0 +1,21 @@
+
+/* Botón de tema: icono centrado en el botón */
+.boton-tema {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.boton-tema span {
+  display: flex;
+}
+
+.boton-tema svg {
+  display: block;
+}
+
+.boton-tema [hidden] {
+  display: none;
+}

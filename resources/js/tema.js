@@ -7,7 +7,9 @@ function aplicarTema(tema) {
     if (boton) boton.setAttribute('aria-pressed', String(tema === 'dark'));
 }
 
-aplicarTema(localStorage.getItem('tema') || 'light');
+const temaGuardado = localStorage.getItem('tema');
+const temaSistema = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+aplicarTema(temaGuardado || temaSistema);
 
 if (boton) {
     boton.addEventListener('click', () => {

@@ -73,3 +73,16 @@
     align-items: start;
   }
 }
+/* .card no trae relleno (bicicleta-card necesita la foto de borde a borde),
+   así que las dos tarjetas de esta página lo ponen aquí */
+.contacto__formulario,
+.contacto__datos {
+  padding: var(--espacio-l);
+}
+
+@media (min-width: 48rem) {
+  .contacto__formulario,
+  .contacto__datos {
+    padding: 2rem;
+  }
+}

@@ -81,10 +81,9 @@
   margin-block: 0;
 }
 
-/* dt (texto) va antes que dd (número) en el HTML; visualmente el número arriba */
 .cifras__item {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .cifras__numero {
@@ -96,6 +95,7 @@
 }
 
 .cifras__texto {
+  margin: 0;
   font-size: var(--texto-m);
 }
 

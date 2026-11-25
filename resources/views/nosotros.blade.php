@@ -46,8 +46,8 @@
         <dl class="cifras__lista contenedor">
             @foreach ($cifras as $cifra)
                 <div class="cifras__item">
-                    <dt class="cifras__texto">{{ $cifra['texto'] }}</dt>
-                    <dd class="cifras__numero">{{ $cifra['numero'] }}</dd>
+                   <dt class="cifras__numero">{{ $cifra['numero'] }}</dt>
+                   <dd class="cifras__texto">{{ $cifra['texto'] }}</dd>
                 </div>
             @endforeach
         </dl>

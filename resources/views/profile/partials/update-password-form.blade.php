@@ -1,44 +1,33 @@
-<section class="profile-form">
-    <header class="profile-form__header">
-        <h2 class="profile-form__title">
-            {{ __('Update Password') }}
-        </h2>
+<section class="perfil__bloque" aria-labelledby="titulo-clave">
+    <h2 class="perfil__titulo" id="titulo-clave">Cambiar contraseña</h2>
+    <p class="perfil__descripcion">Usa una contraseña larga y aleatoria para mantener tu cuenta segura.</p>
 
-        <p class="profile-form__description">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
-    </header>
-
-    <form method="post" action="{{ route('password.update') }}" class="profile-form__form">
+    <form class="formulario" method="post" action="{{ route('password.update') }}">
         @csrf
         @method('put')
 
-        <div class="profile-form__group">
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input id="update_password_current_password" name="current_password" type="password" class="profile-form__input" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="profile-form__error" />
-        </div>
+        @if ($errors->updatePassword->any())
+            <ul class="formulario__errores" role="alert">
+                @foreach ($errors->updatePassword->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
 
-        <div class="profile-form__group">
-            <x-input-label for="update_password_password" :value="__('New Password')" />
-            <x-text-input id="update_password_password" name="password" type="password" class="profile-form__input" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="profile-form__error" />
-        </div>
+        <x-campo nombre="current_password" id="update_password_current_password" tipo="password"
+                 etiqueta="Contraseña actual" autocomplete="current-password" />
 
-        <div class="profile-form__group">
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="profile-form__input" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="profile-form__error" />
-        </div>
+        <x-campo nombre="password" id="update_password_password" tipo="password"
+                 etiqueta="Contraseña nueva" autocomplete="new-password" />
 
-        <div class="profile-form__actions">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <x-campo nombre="password_confirmation" id="update_password_password_confirmation" tipo="password"
+                 etiqueta="Confirmar contraseña" autocomplete="new-password" />
+
+        <div class="formulario__acciones">
+            <x-boton type="submit">Guardar</x-boton>
 
             @if (session('status') === 'password-updated')
-                <p
-                    role="status"
-                    class="profile-form__saved"
-                >{{ __('Saved.') }}</p>
+                <p class="perfil__estado" role="status">Contraseña actualizada.</p>
             @endif
         </div>
     </form>

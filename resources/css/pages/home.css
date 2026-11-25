@@ -1,0 +1,250 @@
+/* Inicio según el Figma:
+   Las secciones ocupan todo el ancho (el fondo llega a los bordes) y el contenido se centra con
+   --margen-lateral: 1,25 rem en móvil, 2 rem en tablet y el ancho máximo en escritorio. */
+.hero,
+.bicis,
+.pasos,
+.cta {
+  --margen-lateral: max(1.25rem, calc((100% - var(--ancho-contenido)) / 2));
+  padding-inline: var(--margen-lateral);
+}
+
+@media (min-width: 48rem) {
+  .hero,
+  .bicis,
+  .pasos,
+  .cta {
+    --margen-lateral: max(2rem, calc((100% - var(--ancho-contenido)) / 2));
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: grid;
+  gap: var(--espacio-xl);
+  padding-block: 2.5rem;
+  background: var(--superficie-hero);
+  color: var(--texto-sobre-oscuro);
+}
+
+/* Franja de degradado de marca en el borde inferior */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 0.375rem;
+  background: var(--gradiente-marca);
+}
+
+.hero__etiqueta {
+  margin-bottom: var(--espacio-m);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-lima);
+}
+
+.hero__titulo {
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+  line-height: 1.1;
+}
+
+.hero__descripcion {
+  max-width: 36rem;
+  margin-top: var(--espacio-m);
+  color: rgb(255 255 255 / 82%);
+}
+
+.hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--espacio-l);
+}
+
+/* El botón de contorno se pensó para fondo claro: sobre el hero va en blanco.
+   COMPROBAR que boton.css llama así a la variante (boton--contorno). */
+.hero .boton--contorno {
+  border-color: var(--color-blanco);
+  color: var(--color-blanco);
+}
+
+/* El foco violeta no se ve sobre fondo oscuro */
+.hero :focus-visible,
+.cta :focus-visible {
+  outline-color: var(--foco-sobre-oscuro);
+}
+
+.hero__imagen {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radio-l);
+  background: var(--gradiente-marca);
+}
+
+/* ---------- Nuestras bicis ---------- */
+.bicis {
+  padding-block: 3.5rem;
+  background: var(--superficie-pagina);
+}
+
+.bicis__titulo,
+.pasos__titulo {
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+}
+
+.bicis__subtitulo {
+  margin-top: var(--espacio-l);
+  color: var(--texto-suave);
+}
+
+.bicis__lista {
+  display: grid;
+  gap: var(--espacio-l);
+  margin-top: 1.75rem;
+}
+
+/* Foto de altura fija (171 px en el Figma). */
+.bicis__lista .bicicleta-card__foto {
+  aspect-ratio: auto;
+  height: 10.7rem;
+}
+
+/* ---------- Cómo funciona ---------- */
+.pasos {
+  padding-block: 3.5rem;
+  background: var(--superficie-tarjeta);
+}
+
+.pasos__lista {
+  display: grid;
+  gap: var(--espacio-m);
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+}
+
+.pasos__tarjeta {
+  height: 100%;
+  padding: var(--espacio-l);
+  border: 0;
+  border-radius: var(--radio-l);
+  background: var(--superficie-pagina);
+}
+
+/* El número del paso sale del contador CSS: el HTML no lleva elemento para él */
+.pasos__tarjeta::before {
+  counter-increment: paso;
+  content: counter(paso);
+  content: counter(paso) / '';
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-violeta);
+  color: var(--color-blanco);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-negrita);
+}
+
+.pasos__item:nth-child(2) .pasos__tarjeta::before {
+  background: var(--color-azul);
+}
+
+.pasos__item:nth-child(3) .pasos__tarjeta::before {
+  background: var(--color-lima);
+  color: var(--color-tinta-2);
+}
+
+.pasos__nombre {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+}
+
+.pasos__texto {
+  margin-top: var(--espacio-xs);
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+}
+
+/* ---------- Llamada a la acción ---------- */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-block: 3.5rem;
+  background: var(--color-violeta);
+  color: var(--color-blanco);
+}
+
+.cta__titulo {
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+}
+
+.cta .boton {
+  margin-top: 0.75rem;
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 40rem) {
+  .bicis__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    padding-block: 4rem;
+  }
+
+  .hero__titulo {
+    font-size: 2.75rem;
+  }
+
+  .bicis,
+  .pasos,
+  .cta {
+    padding-block: 4.5rem;
+  }
+
+  .pasos__lista {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--espacio-l);
+  }
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 64rem) {
+  .hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 3.5rem;
+    padding-block: 6rem;
+  }
+
+  .hero__titulo {
+    font-size: var(--texto-3xl);
+  }
+
+  .hero__descripcion {
+    font-size: var(--texto-m);
+  }
+
+  .hero__imagen {
+    aspect-ratio: 27 / 20;
+  }
+
+  .bicis__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

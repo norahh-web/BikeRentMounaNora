@@ -1,0 +1,75 @@
+/* Contacto (según el Figma).
+   Móvil: formulario, tarjeta oscura y mapa en una columna.
+   Escritorio: formulario a la izquierda; a la derecha, tarjeta oscura y mapa. */
+.contacto {
+  display: grid;
+  gap: var(--espacio-l);
+  padding-block: 2.25rem var(--espacio-2xl);
+}
+
+.contacto__lateral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+/* Tarjeta oscura (sobre x-card) */
+.contacto__datos {
+  border-color: transparent;
+  background: var(--superficie-hero);
+  color: var(--color-blanco);
+}
+
+.contacto__titulo {
+  margin-bottom: var(--espacio-m);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-semibold);
+}
+
+.contacto__lista {
+  display: grid;
+  gap: var(--espacio-m);
+  margin: 0;
+}
+
+.contacto__etiqueta {
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-lima);
+}
+
+.contacto__item dd {
+  margin: var(--espacio-xs) 0 0;
+  font-size: var(--texto-m);
+}
+
+.contacto__enlace {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+/* El foco por defecto (violeta) no se ve sobre fondo oscuro */
+.contacto__datos :focus-visible {
+  outline-color: var(--foco-sobre-oscuro);
+}
+
+/* Marcador de posición del mapa */
+.contacto__mapa {
+  display: grid;
+  place-items: center;
+  min-height: 11.25rem;
+  border-radius: var(--radio-l);
+  background: var(--color-azul-claro);
+  color: var(--color-tinta-2);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-medio);
+}
+
+@media (min-width: 56rem) {
+  .contacto {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}

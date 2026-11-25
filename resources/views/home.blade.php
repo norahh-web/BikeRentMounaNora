@@ -13,7 +13,7 @@
                 <x-boton variante="contorno" href="#bicis">Ver bicis</x-boton>
             </div>
         </div>
-        <div class="hero__imagen" aria-hidden="true"></div>
+        <img class="hero__imagen" src="{{ asset('images/familia.jpg') }}" alt="Familia paseando en bici" width="800" height="600">
     </section>
 
     <section class="bicis" id="bicis" aria-labelledby="titulo-bicis">

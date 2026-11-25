@@ -59,3 +59,10 @@
   width: 100%;
   margin-top: auto;
 }
+
+/* Se ve la bici entera (sin recortar); el fondo rellena los huecos */
+.bicicleta-card__foto {
+  object-fit: contain;
+  padding: var(--espacio-s);
+  background: var(--color-blanco);
+}

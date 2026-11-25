@@ -2,16 +2,21 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Bike;
 use Illuminate\Database\Seeder;
 
 class BikeImagenesSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Asigna una foto a TODAS las bicis según su tipo.
+     * Si el tipo no tiene foto propia, usa la de Urbana.
      */
     public function run(): void
     {
-        //
+        Bike::query()->each(function (Bike $bici) {
+            $bici->update([
+                'imagen' => BikeSeeder::IMAGENES[$bici->tipo] ?? BikeSeeder::IMAGENES['Urbana'],
+            ]);
+        });
     }
 }

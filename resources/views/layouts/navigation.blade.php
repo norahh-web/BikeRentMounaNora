@@ -1,8 +1,7 @@
 <header class="navbar">
     <nav class="navbar__contenedor" aria-label="Principal">
         <a class="navbar__logo" href="{{ route('bikes.index') }}" aria-label="OnyarBizi, ir al inicio">
-            {{-- Logo provisional: se cambiará por <x-logo /> cuando A lo entregue --}}
-            <span class="navbar__logo-texto">OnyarBizi</span>
+            <x-logo />
         </a>
 
         <ul class="navbar__lista">
@@ -18,6 +17,9 @@
             @endforeach
         </ul>
 
-        <x-boton variante="lima" :href="route('alquiler')" class="navbar__reservar">Reservar</x-boton>
+        <div class="navbar__acciones">
+            <x-boton-tema />
+            <x-boton variante="lima" :href="route('alquiler')" class="navbar__reservar">Reservar</x-boton>
+        </div>
     </nav>
 </header>

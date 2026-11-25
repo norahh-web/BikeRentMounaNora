@@ -1,63 +1,39 @@
-<section class="profile-form">
-    <header class="profile-form__header">
-        <h2 class="profile-form__title">
-            {{ __('Profile Information') }}
-        </h2>
-
-        <p class="profile-form__description">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
-    </header>
+<section class="perfil__bloque" aria-labelledby="titulo-info">
+    <h2 class="perfil__titulo" id="titulo-info">Información del perfil</h2>
+    <p class="perfil__descripcion">Actualiza tu nombre y tu correo electrónico.</p>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="profile-form__form">
+    <form class="formulario" method="post" action="{{ route('profile.update') }}">
         @csrf
         @method('patch')
 
-        <div class="profile-form__group">
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="profile-form__input" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="profile-form__error" :messages="$errors->get('name')" />
-        </div>
+        <x-campo nombre="name" tipo="text" etiqueta="Nombre"
+                 :valor="old('name', $user->name)" required autofocus autocomplete="name" />
 
-        <div class="profile-form__group">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="profile-form__input" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="profile-form__error" :messages="$errors->get('email')" />
+        <x-campo nombre="email" tipo="email" etiqueta="Correo electrónico"
+                 :valor="old('email', $user->email)" required autocomplete="username" />
 
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="profile-form__text">
-                        {{ __('Your email address is unverified.') }}
+        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+            <p class="perfil__aviso">
+                Tu correo electrónico no está verificado.
+                <button type="submit" form="send-verification" class="perfil__enlace">
+                    Reenviar el correo de verificación
+                </button>
+            </p>
 
-                        <button form="send-verification" class="profile-form__link">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="profile-form__status">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
+            @if (session('status') === 'verification-link-sent')
+                <p class="perfil__estado" role="status">Te hemos enviado un nuevo enlace de verificación.</p>
             @endif
-        </div>
+        @endif
 
-        <div class="profile-form__actions">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="formulario__acciones">
+            <x-boton type="submit">Guardar</x-boton>
 
             @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="profile-form__saved"
-                >{{ __('Saved.') }}</p>
+                <p class="perfil__estado" role="status">Cambios guardados.</p>
             @endif
         </div>
     </form>

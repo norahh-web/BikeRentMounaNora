@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Página principal o catálogo público de bicicletas
-Route::get('/', [BikeController::class, 'index'])->name('bikes.index');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('bikes.index');
 
 // Ver los detalles de una bicicleta específica
 Route::get('/bikes/{bike}', [BikeController::class, 'show'])->name('bikes.show');
@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Rutas de las páginas del diseño (Figma)
+// Rutas de las páginas del diseño 
 Route::get('/alquiler', [\App\Http\Controllers\AlquilerController::class, 'index'])->name('alquiler');
 Route::view('/nosotros', 'nosotros')->name('nosotros');
 Route::view('/contacto', 'contacto')->name('contacto');

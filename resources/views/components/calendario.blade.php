@@ -1,4 +1,4 @@
-@props(['anio' => 2026, 'mes' => 11])
+@props(['anio' => now()->year, 'mes' => now()->month])
 
 @php
     $primerDia = \Carbon\Carbon::create($anio, $mes, 1);

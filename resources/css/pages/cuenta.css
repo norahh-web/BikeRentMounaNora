@@ -1,0 +1,51 @@
+/* Cuenta
+   Sin sesión: la tarjeta de login (.login-card, definida en auth.css).
+   Con sesión: tarjeta de perfil con saludo, correo y tres acciones. */
+.cuenta {
+  padding: 2.5rem 1.25rem 3.5rem;
+  background: var(--superficie-pagina);
+}
+
+.cuenta__perfil {
+  width: 100%;
+  max-width: var(--ancho-formulario);
+  margin-inline: auto;
+  padding: var(--espacio-l);
+}
+
+/* overflow-wrap: un correo largo no debe desbordar la tarjeta (zoom 200 %) */
+.cuenta__saludo {
+  font-size: var(--texto-l);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.cuenta__correo {
+  margin-top: var(--espacio-xs);
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+  overflow-wrap: anywhere;
+}
+
+/* Botones apilados y a todo el ancho */
+.cuenta__acciones {
+  display: grid;
+  gap: var(--espacio-s);
+  margin-top: var(--espacio-l);
+}
+
+.cuenta__acciones .boton {
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .cuenta {
+    padding: 3.5rem 2rem 4.5rem;
+  }
+}
+/* La tarjeta de login se reutiliza aquí sin el contenedor del layout guest,
+   que es quien le da el relleno en las páginas de autenticación */
+.cuenta .login-card {
+  padding: var(--espacio-l);
+}

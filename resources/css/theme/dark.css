@@ -1,4 +1,4 @@
-:root[data-theme='dark'] {
+:root.dark {
   color-scheme: dark;
   --superficie-pagina: #14121A;
   --superficie-tarjeta: #211E26;
@@ -19,7 +19,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
+  :root:not(.light) {
     color-scheme: dark;
     --superficie-pagina: #14121A;
     --superficie-tarjeta: #211E26;

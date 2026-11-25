@@ -1,0 +1,25 @@
+/* Insignia de estado: confirmada (verde), pendiente (lima), gris */
+.insignia {
+  display: inline-block;
+  padding: var(--espacio-xs) var(--espacio-m);
+  border-radius: var(--radio-pill);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-medio);
+  line-height: 1.4;
+}
+
+.insignia--confirmada {
+  background: var(--superficie-exito);
+  color: var(--texto-principal);
+}
+
+/* Lima claro es claro en los dos temas, por eso el texto es fijo */
+.insignia--pendiente {
+  background: var(--color-lima-claro);
+  color: var(--color-tinta-2);
+}
+
+.insignia--gris {
+  background: var(--superficie-deshabilitada);
+  color: var(--texto-suave);
+}

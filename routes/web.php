@@ -45,4 +45,15 @@ require __DIR__.'/auth.php';
 Route::get('/alquiler', [\App\Http\Controllers\AlquilerController::class, 'index'])->name('alquiler');
 Route::view('/nosotros', 'nosotros')->name('nosotros');
 Route::view('/contacto', 'contacto')->name('contacto');
+Route::post('/contacto', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'nombre' => ['required', 'string', 'max:100'],
+        'email' => ['required', 'email', 'max:255'],
+        'asunto' => ['required', 'string', 'max:150'],
+        'mensaje' => ['required', 'string', 'max:1000'],
+    ]);
+
+    // Sin envío real de correo: solo valida y confirma (proyecto de clase).
+    return back()->with('status', 'Gracias, hemos recibido tu mensaje. Te responderemos pronto.');
+})->name('contacto.enviar');
 Route::view('/cuenta', 'cuenta')->name('cuenta');

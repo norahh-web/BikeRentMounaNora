@@ -1,0 +1,107 @@
+/* Detalle de bici (bikes/show.blade.php).
+   Móvil: volver, foto e información en una columna.
+   Escritorio: foto a la izquierda e información a la derecha. */
+.detalle {
+  --margen-lateral: max(1.25rem, calc((100% - var(--ancho-contenido)) / 2));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--espacio-l);
+  padding: 2rem var(--margen-lateral) 3.5rem;
+  background: var(--superficie-pagina);
+}
+
+.detalle__volver {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 2.75rem;
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-medio);
+  text-decoration: none;
+}
+
+.detalle__volver:hover {
+  color: var(--texto-principal);
+  text-decoration: underline;
+}
+
+.detalle__foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--superficie-tarjeta);
+  object-fit: cover;
+}
+
+.detalle__info {
+  display: grid;
+  justify-items: start;
+  gap: var(--espacio-m);
+}
+
+.detalle__titulo {
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+  line-height: 1.1;
+}
+
+.detalle__descripcion {
+  max-width: 40rem;
+  color: var(--texto-suave);
+}
+
+/* Lista de datos: cada fila lleva término a la izquierda y valor a la derecha */
+.detalle__datos {
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid var(--borde);
+}
+
+.detalle__fila {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espacio-xs) var(--espacio-m);
+  padding-block: var(--espacio-m);
+  border-bottom: 1px solid var(--borde);
+}
+
+.detalle__fila dt {
+  color: var(--texto-suave);
+}
+
+.detalle__fila dd {
+  margin: 0;
+  font-weight: var(--peso-medio);
+  text-align: right;
+}
+
+.detalle__info .boton {
+  width: 100%;
+  margin-top: var(--espacio-s);
+}
+
+@media (min-width: 48rem) {
+  .detalle {
+    --margen-lateral: max(2rem, calc((100% - var(--ancho-contenido)) / 2));
+    padding-block: 2.5rem 4.5rem;
+  }
+
+  .detalle__info .boton {
+    width: auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  .detalle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--espacio-xl) 3.5rem;
+  }
+
+  .detalle__volver {
+    grid-column: 1 / -1;
+  }
+}

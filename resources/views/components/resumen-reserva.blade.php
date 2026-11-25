@@ -20,7 +20,17 @@
             <strong id="resumen-total">0 €</strong>
         </p>
 
-        <x-boton type="submit" id="boton-confirmar" variante="deshabilitado">Confirmar reserva</x-boton>
+        @if ($errors->any())
+            <ul class="resumen__errores resumen__errores--servidor" role="alert">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
+        <ul class="resumen__errores" id="resumen-error" role="alert" hidden></ul>
+
+        <x-boton type="submit" id="boton-confirmar">Confirmar reserva</x-boton>
     </form>
 
     <p class="resumen__nota">Cancelación gratuita hasta 24 h antes.</p>

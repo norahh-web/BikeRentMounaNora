@@ -1,4 +1,5 @@
-:root {
+:root,
+:root.light {
   color-scheme: light;
   --superficie-pagina: var(--color-fondo);
   --superficie-tarjeta: var(--color-blanco);

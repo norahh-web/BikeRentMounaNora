@@ -1,52 +1,29 @@
-<x-guest-layout>
-    <form class="auth-form" method="POST" action="{{ route('register') }}">
+<x-guest-layout titulo="Registrar" subtitulo="Crea tu cuenta y reserva tu bici en un par de minutos.">
+    <form class="formulario" method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
-        <div class="auth-form__group">
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="auth-form__input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="auth-form__error" />
-        </div>
+        <x-campo nombre="name" etiqueta="Nombre"
+                 :valor="old('name')" placeholder="Tu nombre"
+                 required autofocus autocomplete="name" />
 
-        <!-- Email Address -->
-        <div class="auth-form__group">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="auth-form__input" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="auth-form__error" />
-        </div>
+        <x-campo nombre="email" tipo="email" etiqueta="Correo electrónico"
+                 :valor="old('email')" placeholder="tucorreo@ejemplo.com"
+                 required autocomplete="username" />
 
-        <!-- Password -->
-        <div class="auth-form__group">
-            <x-input-label for="password" :value="__('Password')" />
+        <x-campo nombre="password" tipo="password" etiqueta="Contraseña"
+                 placeholder="Escribe tu contraseña…"
+                 required autocomplete="new-password" />
 
-            <x-text-input id="password" class="auth-form__input"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        <x-campo nombre="password_confirmation" tipo="password" etiqueta="Confirmar contraseña"
+                 placeholder="Confirma tu contraseña…"
+                 required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="auth-form__error" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="auth-form__group">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="auth-form__input"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="auth-form__error" />
-        </div>
-
-        <div class="auth-form__actions">
-            <a class="auth-form__link" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="auth-form__submit">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="formulario__acciones">
+            <x-boton variante="primario" type="submit" class="formulario__boton">Crear cuenta</x-boton>
         </div>
     </form>
+
+    <x-slot:pie>
+        ¿Ya tienes cuenta? <a class="formulario__enlace" href="{{ route('login') }}">Inicia sesión</a>
+    </x-slot:pie>
 </x-guest-layout>

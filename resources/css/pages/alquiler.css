@@ -1,0 +1,166 @@
+/* Alquiler según el Figma.
+   Móvil: cabecera, los tres pasos y el resumen debajo, todo en una columna.
+   Escritorio: pasos a la izquierda y resumen a la derecha (fijo al hacer scroll). */
+.alquiler__cabecera,
+.alquiler__cuerpo {
+  --margen-lateral: max(1.25rem, calc((100% - var(--ancho-contenido)) / 2));
+  padding-inline: var(--margen-lateral);
+}
+
+@media (min-width: 48rem) {
+  .alquiler__cabecera,
+  .alquiler__cuerpo {
+    --margen-lateral: max(2rem, calc((100% - var(--ancho-contenido)) / 2));
+  }
+}
+
+/* ---------- Cabecera: título, filtros y orden ---------- */
+.alquiler__cabecera {
+  padding-block: 2.5rem;
+  background: var(--superficie-tarjeta);
+}
+
+.alquiler__titulo {
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+  line-height: 1.1;
+}
+
+.alquiler__subtitulo {
+  max-width: 40rem;
+  margin-top: var(--espacio-m);
+  color: var(--texto-suave);
+}
+
+.alquiler__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+  margin-top: 1.75rem;
+}
+
+/* «Ordenar por» no está en el Figma: se mantiene discreto debajo de los filtros */
+.alquiler__orden {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-s) var(--espacio-m);
+  margin-top: var(--espacio-l);
+  font-size: var(--texto-s);
+}
+
+.alquiler__orden-texto {
+  color: var(--texto-suave);
+  font-weight: var(--peso-medio);
+}
+
+.alquiler__selector {
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: var(--espacio-s) var(--espacio-m);
+  border: 1px solid var(--borde-campo);
+  border-radius: var(--radio-s);
+  background: var(--superficie-campo);
+  color: var(--texto-principal);
+  font-size: var(--texto-s);
+  cursor: pointer;
+}
+
+/* ---------- Cuerpo: pasos y resumen ---------- */
+.alquiler__cuerpo {
+  display: grid;
+  gap: 2.75rem;
+  padding-block: 2.5rem;
+  background: var(--superficie-pagina);
+}
+
+.alquiler__pasos {
+  display: grid;
+  gap: 2.75rem;
+  min-width: 0;
+}
+
+.alquiler__paso {
+  margin-bottom: var(--espacio-m);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+}
+
+/* bicis */
+.alquiler__bicis {
+  display: grid;
+  gap: var(--espacio-l);
+}
+
+/* Foto de altura fija (171 px en el Figma). Si se prefiere, mover a bicicleta-card.css */
+.alquiler__bicis .bicicleta-card__foto {
+  aspect-ratio: auto;
+  height: 10.7rem;
+}
+
+/* Sin display propio: así el atributo hidden del JS sigue ocultándolo */
+.alquiler__vacio {
+  margin-top: var(--espacio-m);
+  padding: var(--espacio-l);
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+/* calendario (420 px en el Figma; el componente trae 352 px) */
+.alquiler__pasos .calendario {
+  max-width: 26.25rem;
+}
+
+/* horas. Tantas columnas como quepan, mínimo 76 px cada una */
+.alquiler__franjas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.75rem, 1fr));
+  gap: var(--espacio-s);
+}
+
+.alquiler__franjas .franja {
+  width: 100%;
+}
+
+.alquiler__estado {
+  margin-top: 0.75rem;
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 40rem) {
+  .alquiler__bicis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 48rem) {
+  .alquiler__cabecera {
+    padding-block: 3.5rem;
+  }
+
+  .alquiler__cuerpo {
+    padding-block: 3.5rem;
+  }
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 64rem) {
+  .alquiler__cabecera {
+    padding-block: 4.5rem;
+  }
+
+  .alquiler__cuerpo {
+    grid-template-columns: minmax(0, 1fr) 23.75rem;
+    align-items: start;
+    gap: 3rem;
+    padding-block: 4.5rem;
+  }
+
+  .alquiler__resumen {
+    position: sticky;
+    top: var(--espacio-l);
+  }
+}

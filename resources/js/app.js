@@ -1,7 +1,3 @@
-
-
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import './tema';
+import './catalogo';
+import './reserva';

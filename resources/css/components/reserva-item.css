@@ -1,0 +1,35 @@
+/* Fila de "Mis reservas": nombre y fecha a la izquierda, estado y total a la derecha */
+.reserva-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m);
+}
+
+.reserva-item__nombre {
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+}
+
+.reserva-item__fecha {
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+}
+
+.reserva-item__lado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--espacio-xs);
+}
+
+.reserva-item__total {
+  font-weight: var(--peso-semibold);
+}
+
+.reserva-item__cancelar .boton {
+  min-height: auto;
+  padding: var(--espacio-xs) var(--espacio-m);
+  font-size: var(--texto-xs);
+}

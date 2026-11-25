@@ -1,29 +1,19 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="page-title">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+    <x-slot name="title">Mi perfil</x-slot>
 
-    <div class="page">
-        <div class="page__container page__container--stacked">
-            <div class="page__card">
-                <div class="page__card-content">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <x-cabecera-pagina titulo="Mi perfil" subtitulo="Gestiona tu información personal y tu cuenta." />
 
-            <div class="page__card">
-                <div class="page__card-content">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+    <div class="perfil">
+        <x-card class="perfil__seccion">
+            @include('profile.partials.update-profile-information-form')
+        </x-card>
 
-            <div class="page__card">
-                <div class="page__card-content">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
+        <x-card class="perfil__seccion">
+            @include('profile.partials.update-password-form')
+        </x-card>
+
+        <x-card class="perfil__seccion">
+            @include('profile.partials.delete-user-form')
+        </x-card>
     </div>
 </x-app-layout>

@@ -1,25 +1,19 @@
-<x-guest-layout>
-    <div class="auth-form__text">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+<x-guest-layout titulo="Recuperar contraseña" subtitulo="Te enviaremos un enlace para crear una contraseña nueva.">
+    <x-auth-session-status class="formulario__estado" :status="session('status')" />
 
-    <!-- Session Status -->
-    <x-auth-session-status class="auth-form__status" :status="session('status')" />
-
-    <form class="auth-form" method="POST" action="{{ route('password.email') }}">
+    <form class="formulario" method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <!-- Email Address -->
-        <div class="auth-form__group">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="auth-form__input" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="auth-form__error" />
-        </div>
+        <x-campo nombre="email" tipo="email" etiqueta="Correo electrónico"
+                 :valor="old('email')" placeholder="tucorreo@ejemplo.com"
+                 required autofocus autocomplete="username" />
 
-        <div class="auth-form__actions">
-            <x-primary-button class="auth-form__submit">
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+        <div class="formulario__acciones">
+            <x-boton variante="primario" type="submit" class="formulario__boton">Enviar enlace</x-boton>
         </div>
     </form>
+
+    <x-slot:pie>
+        <a class="formulario__enlace" href="{{ route('login') }}">Volver a iniciar sesión</a>
+    </x-slot:pie>
 </x-guest-layout>

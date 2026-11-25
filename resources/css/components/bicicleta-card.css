@@ -1,0 +1,68 @@
+/* Tarjeta de bici (se apoya en .card). Estado: bicicleta-card--seleccionada */
+.bicicleta-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.bicicleta-card--seleccionada {
+  border-color: var(--color-violeta);
+  box-shadow: 0 0 0 1px var(--color-violeta);
+}
+
+.bicicleta-card__foto {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--color-lila-suave);
+}
+
+.bicicleta-card__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  padding: var(--espacio-m);
+}
+
+.bicicleta-card__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bicicleta-card__etiqueta {
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-pill);
+  background: var(--color-azul-claro);
+  color: var(--color-tinta-2);
+  font-size: var(--texto-xs);
+}
+
+.bicicleta-card__precio {
+  color: var(--texto-acento);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-negrita);
+}
+
+.bicicleta-card__nombre {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+}
+
+.bicicleta-card__descripcion {
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+}
+
+/* El botón ocupa todo el ancho y queda siempre abajo */
+.bicicleta-card .boton {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Se ve la bici entera (sin recortar); el fondo rellena los huecos */
+.bicicleta-card__foto {
+  object-fit: contain;
+  padding: var(--espacio-s);
+  background: var(--color-blanco);
+}

@@ -1,27 +1,12 @@
-<x-guest-layout>
-    <div class="auth-form__text">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
-
-    <form class="auth-form" method="POST" action="{{ route('password.confirm') }}">
+<x-guest-layout titulo="Confirmar contraseña" subtitulo="Es una zona protegida. Confirma tu contraseña para continuar.">
+    <form class="formulario" method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <!-- Password -->
-        <div class="auth-form__group">
-            <x-input-label for="password" :value="__('Password')" />
+        <x-campo nombre="password" tipo="password" etiqueta="Contraseña"
+                 required autofocus autocomplete="current-password" />
 
-            <x-text-input id="password" class="auth-form__input"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="auth-form__error" />
-        </div>
-
-        <div class="auth-form__actions">
-            <x-primary-button class="auth-form__submit">
-                {{ __('Confirm') }}
-            </x-primary-button>
+        <div class="formulario__acciones">
+            <x-boton variante="primario" type="submit" class="formulario__boton">Confirmar</x-boton>
         </div>
     </form>
 </x-guest-layout>

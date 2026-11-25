@@ -1,0 +1,30 @@
+/* Franja horaria: normal, elegida (violeta) y deshabilitada (gris) */
+.franja {
+  padding: var(--espacio-s) var(--espacio-m);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-s);
+  background: var(--superficie-tarjeta);
+  color: var(--texto-principal);
+  font-size: var(--texto-s);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.franja:hover {
+  border-color: var(--color-violeta);
+}
+
+.franja--elegida {
+  background: var(--color-violeta);
+  border-color: var(--color-violeta);
+  color: var(--color-blanco);
+}
+
+.franja--deshabilitada,
+.franja:disabled {
+  background: var(--superficie-deshabilitada);
+  border-color: transparent;
+  color: var(--texto-suave);
+  cursor: not-allowed;
+}

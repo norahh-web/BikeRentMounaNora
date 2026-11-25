@@ -1,0 +1,75 @@
+/* Calendario mensual: día actual con borde, día elegido en violeta */
+.calendario {
+  max-width: 22rem;
+  padding: var(--espacio-m);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--superficie-tarjeta);
+}
+
+.calendario__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-m);
+}
+
+.calendario__titulo {
+  font-size: var(--texto-s);
+  font-weight: var(--peso-semibold);
+}
+
+.calendario__nav {
+  padding: var(--espacio-xs) var(--espacio-s);
+  border: 0;
+  background: transparent;
+  color: var(--texto-acento);
+  cursor: pointer;
+}
+
+/* Las dos filas (nombres de día y días) son rejillas de 7 columnas */
+.calendario__semana,
+.calendario__dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--espacio-xs);
+}
+
+.calendario__semana {
+  margin-bottom: var(--espacio-s);
+  color: var(--texto-suave);
+  font-size: var(--texto-xs);
+  text-align: center;
+}
+
+.calendario__dia {
+  width: 100%;
+  max-width: 2.5rem;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--texto-principal);
+  font-size: var(--texto-s);
+  cursor: pointer;
+}
+
+.calendario__dia:hover {
+  background: var(--superficie-pagina);
+}
+
+.calendario__dia--hoy {
+  border-color: var(--color-violeta);
+}
+
+.calendario__dia--elegido {
+  background: var(--color-violeta);
+  color: var(--color-blanco);
+}
+
+.calendario__dia:disabled {
+  color: var(--texto-suave);
+  opacity: 0.5;
+  cursor: not-allowed;
+}

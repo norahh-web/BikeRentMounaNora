@@ -1,0 +1,40 @@
+/* Base */
+@import './base/variables.css';
+@import './base/global.css';
+
+/* Layout */
+@import './layout/app.css';
+@import './layout/guest.css';
+@import './layout/navigation.css';
+@import './layout/footer.css';
+
+/* Componentes */
+@import './components/logo.css';
+@import './components/cabecera-pagina.css';
+@import './components/card.css';
+@import './components/boton.css';
+@import './components/chip.css';
+@import './components/insignia.css';
+@import './components/campo.css';
+@import './components/formulario.css';
+@import './components/modal.css';
+@import './components/bicicleta-card.css';
+@import './components/calendario.css';
+@import './components/franja.css';
+@import './components/resumen.css';
+@import './components/reserva-item.css';
+
+/* Páginas */
+@import './pages/home.css';
+@import './pages/alquiler.css';
+@import './pages/detalle.css';
+@import './pages/cuenta.css';
+@import './pages/profile.css';
+@import './pages/reservas.css';
+@import './pages/nosotros.css';
+@import './pages/contacto.css';
+@import './pages/auth.css';
+
+/* Temas */
+@import './theme/light.css';
+@import './theme/dark.css';

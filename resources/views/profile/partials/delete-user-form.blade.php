@@ -1,55 +1,36 @@
-<section class="profile-form profile-form--delete">
-    <header class="profile-form__header">
-        <h2 class="profile-form__title">
-            {{ __('Delete Account') }}
-        </h2>
+<section class="perfil__bloque" aria-labelledby="titulo-borrar">
+    <h2 class="perfil__titulo" id="titulo-borrar">Eliminar cuenta</h2>
+    <p class="perfil__descripcion">
+        Al eliminar tu cuenta se borrarán de forma permanente todos tus datos y reservas.
+        Antes de continuar, guarda la información que quieras conservar.
+    </p>
 
-        <p class="profile-form__description">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </p>
-    </header>
+    <details class="perfil__confirmacion" @if ($errors->userDeletion->isNotEmpty()) open @endif>
+        <summary class="boton boton--contorno">Eliminar cuenta</summary>
 
-    <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
-
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="profile-form__modal-form">
+        <form class="formulario" method="post" action="{{ route('profile.destroy') }}">
             @csrf
             @method('delete')
 
-            <h2 class="profile-form__title">
-                {{ __('Are you sure you want to delete your account?') }}
-            </h2>
-
-            <p class="profile-form__description">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+            <h3 class="perfil__subtitulo">¿Seguro que quieres eliminar tu cuenta?</h3>
+            <p class="perfil__descripcion">
+                Introduce tu contraseña para confirmar que quieres eliminarla de forma permanente.
             </p>
 
-            <div class="profile-form__group">
-                <x-input-label for="password" value="{{ __('Password') }}" class="profile-form__label--hidden" />
+            @if ($errors->userDeletion->any())
+                <ul class="formulario__errores" role="alert">
+                    @foreach ($errors->userDeletion->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
 
-                <x-text-input
-                    id="password"
-                    name="password"
-                    type="password"
-                    class="profile-form__input profile-form__input--narrow"
-                    placeholder="{{ __('Password') }}"
-                />
+            <x-campo nombre="password" id="delete_password" tipo="password"
+                     etiqueta="Contraseña" placeholder="Tu contraseña" autocomplete="current-password" required />
 
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="profile-form__error" />
-            </div>
-
-            <div class="profile-form__modal-actions">
-                <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
-                </x-secondary-button>
-
-                <x-danger-button>
-                    {{ __('Delete Account') }}
-                </x-danger-button>
+            <div class="formulario__acciones">
+                <x-boton type="submit">Eliminar cuenta definitivamente</x-boton>
             </div>
         </form>
-    </x-modal>
+    </details>
 </section>

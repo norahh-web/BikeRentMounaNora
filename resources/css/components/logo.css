@@ -1,0 +1,11 @@
+/* x-logo: SVG en línea. Se dimensiona por altura desde quien lo usa. */
+.logo {
+  display: block;
+  width: auto;
+  height: 3rem;
+}
+
+/* Variante monocroma: toma el color del texto del contenedor */
+.logo--blanco {
+  color: var(--color-blanco);
+}

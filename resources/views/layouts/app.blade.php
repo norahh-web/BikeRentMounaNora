@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @include('layouts.partials.head')
     </head>
-        <body>
+    <body>
+        <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
         <div class="app">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
             @isset($header)
                 <header class="app__header">
                     <div class="app__header-content">
@@ -27,10 +17,12 @@
                 </header>
             @endisset
 
-            <!-- Page Content -->
-            <main class="app__main">
+            <main id="contenido" class="app__main">
                 {{ $slot }}
             </main>
+
+            @include('layouts.footer')
+            @include('layouts.bottom-nav')
         </div>
     </body>
 </html>

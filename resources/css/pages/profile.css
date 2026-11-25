@@ -1,0 +1,101 @@
+/* Perfil: tres tarjetas apiladas y centradas.
+   Cada una es un .perfil__bloque con título, descripción y formulario. */
+.perfil {
+  display: grid;
+  grid-template-columns: minmax(0, 40rem);
+  justify-content: center;
+  gap: var(--espacio-l);
+  padding: 2.5rem 1.25rem 3.5rem;
+  background: var(--superficie-pagina);
+}
+
+.perfil__seccion {
+  padding: var(--espacio-l);
+}
+
+.perfil__titulo {
+  font-size: var(--texto-l);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+}
+
+.perfil__subtitulo {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+  line-height: 1.2;
+}
+
+.perfil__descripcion {
+  margin-top: var(--espacio-xs);
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+}
+
+.perfil__bloque .formulario {
+  margin-top: var(--espacio-l);
+}
+
+/* Botón de guardar y mensaje de estado en la misma fila */
+.perfil .formulario__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+/* Mensajes "Cambios guardados" y similares: mismos tokens que la insignia confirmada */
+.perfil__estado {
+  width: fit-content;
+  padding: var(--espacio-xs) var(--espacio-m);
+  border-radius: var(--radio-pill);
+  background: var(--superficie-exito);
+  color: var(--texto-principal);
+  font-size: var(--texto-s);
+}
+
+/* Aviso de correo sin verificar: lima claro con texto fijo, como pendiente */
+.perfil__aviso {
+  padding: var(--espacio-m);
+  border-radius: var(--radio-s);
+  background: var(--color-lima-claro);
+  color: var(--color-tinta-2);
+  font-size: var(--texto-s);
+}
+
+/* Botón que parece enlace (reenviar verificación) */
+.perfil__enlace {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--peso-semibold);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Eliminar cuenta: <details> con el <summary> como botón de contorno en color de error */
+.perfil__confirmacion {
+  margin-top: var(--espacio-l);
+}
+
+.perfil__confirmacion > summary {
+  list-style: none;
+  cursor: pointer;
+  border-color: var(--texto-error);
+  color: var(--texto-error);
+}
+
+.perfil__confirmacion > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .perfil {
+    padding: 3.5rem 2rem 4.5rem;
+  }
+
+  .perfil__seccion {
+    padding: 2rem;
+  }
+}

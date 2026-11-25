@@ -1,0 +1,26 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__header {
+  border-bottom: 1px solid var(--borde);
+  background: var(--superficie-tarjeta);
+}
+
+.app__header-content {
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: var(--espacio-l) var(--espacio-m);
+}
+
+.app__main {
+  flex: 1;
+}
+
+.contenedor {
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding-inline: var(--espacio-m);
+}

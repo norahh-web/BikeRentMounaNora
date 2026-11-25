@@ -1,0 +1,8 @@
+/* Páginas de autenticación.
+   La estructura está en layout/guest.css y el formulario en components/formulario.css.
+   .login-card: contenedor de la tarjeta de login cuando se incluye en otra vista (Cuenta). */
+.login-card {
+  width: 100%;
+  max-width: var(--ancho-formulario);
+  margin-inline: auto;
+}

@@ -1,0 +1,32 @@
+/* Layout guest: páginas de autenticación.
+   Cabecera de página (x-cabecera-pagina) + tarjeta centrada sobre el fondo. */
+.guest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-l);
+  padding: var(--espacio-l) var(--espacio-m) var(--espacio-2xl);
+}
+
+.guest__card {
+  width: 100%;
+  max-width: var(--ancho-formulario);
+}
+
+.guest__pie {
+  width: 100%;
+  max-width: var(--ancho-formulario);
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+@media (min-width: 48rem) {
+  .guest {
+    padding-top: 2.25rem;
+  }
+
+  .guest__pie {
+    text-align: left;
+    padding-inline: var(--espacio-xs);
+  }
+}

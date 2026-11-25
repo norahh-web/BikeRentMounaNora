@@ -1,0 +1,75 @@
+/* Valores primitivos). Origen: Figma de OnyarBizi.
+   Los nombres coinciden con los estilos del Figma. */
+:root {
+   /* Paleta de marca */
+  --color-fondo: #F6F4FB;
+  --color-lima: #E4FF30;
+  --color-verde: #72C597;
+  --color-azul: #008BFF;
+  --color-violeta: #5B23FF;
+  --color-tinta: #37314D;
+  --color-tinta-2: #221C37;
+  --color-blanco: #FFFFFF;
+
+  /* Auxiliares (tonos Material de cada color de marca) */
+  --color-lila-suave: #EBE5FB;
+  --color-gris-texto: #6E6686;
+  --color-borde: #E5E0EF;
+  --color-borde-campo: #877FA0;
+  --color-gris-deshabilitado: #DFDBE9;
+  --color-verde-claro: #D5F6DF;
+  --color-lima-claro: #F7FFBD;
+  --color-azul-claro: #DEE8FF;
+  /*Estado de error*/
+  --color-error: #BA1A1A;
+  --color-error-claro: #FFDAD6;
+
+  --gradiente-marca: linear-gradient(
+    90deg,
+    var(--color-violeta),
+    var(--color-azul),
+    var(--color-verde),
+    var(--color-lima)
+  );
+
+  /* Tipografía */
+  --fuente-base: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --texto-xs: 0.75rem;
+  --texto-s: 0.875rem;
+  --texto-base: 1rem;
+  --texto-m: 1.125rem;
+  --texto-l: 1.25rem;
+  --texto-xl: 1.5rem;
+  --texto-2xl: 2rem;
+  --texto-3xl: 3.5rem;
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-semibold: 600;
+  --peso-negrita: 700;
+  --interlineado-base: 1.5;
+  --interlineado-titulo: 1.2;
+
+  /* Espaciado */
+  --espacio-xs: 0.25rem;
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 1.5rem;
+  --espacio-xl: 2rem;
+  --espacio-2xl: 3rem;
+  --espacio-3xl: 4rem;
+
+  /* Radios */
+  --radio-s: 0.5rem;
+  --radio-m: 1rem;
+  --radio-l: 1.5rem;
+  --radio-pill: 999px;
+
+  /* Sombras */
+  --sombra-s: 0 1px 2px rgb(34 28 55 / 8%);
+  --sombra-m: 0 8px 24px rgb(34 28 55 / 12%);
+
+  /* Layout y movimiento */
+  --ancho-contenido: 75rem;
+  --ancho-formulario: 39.5rem;
+  --transicion: 150ms ease;
+}

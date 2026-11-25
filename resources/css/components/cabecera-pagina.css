@@ -1,0 +1,50 @@
+/* x-cabecera-pagina: título de página.
+   --clara: fondo de tarjeta (Registrar, Login, Contacto).
+   --oscura: fondo hero (Quiénes somos). */
+.cabecera-pagina {
+  padding-block: var(--espacio-xl);
+  background: var(--superficie-tarjeta);
+}
+
+.cabecera-pagina__antetitulo {
+  margin-bottom: var(--espacio-m);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cabecera-pagina__titulo {
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+}
+
+.cabecera-pagina__texto {
+  max-width: 40rem;
+  margin-top: var(--espacio-m);
+  color: var(--texto-suave);
+}
+
+/* Variante oscura */
+.cabecera-pagina--oscura {
+  background: var(--superficie-hero);
+  color: var(--texto-sobre-oscuro);
+}
+
+.cabecera-pagina--oscura .cabecera-pagina__antetitulo {
+  color: var(--color-lima);
+}
+
+.cabecera-pagina--oscura .cabecera-pagina__texto {
+  color: rgb(255 255 255 / 82%);
+}
+
+@media (min-width: 48rem) {
+  .cabecera-pagina {
+    padding-block: 3.5rem;
+  }
+
+  .cabecera-pagina--oscura {
+    padding-block: 3rem 7.5rem;
+  }
+}

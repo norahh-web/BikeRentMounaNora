@@ -1,31 +1,32 @@
+/* Layout guest: páginas de autenticación.
+   Cabecera de página (x-cabecera-pagina) + tarjeta centrada sobre el fondo. */
 .guest {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: var(--espacio-l);
-  padding: var(--espacio-l) var(--espacio-m);
-}
-
-.guest__logo a {
-  display: inline-block;
-  padding: var(--espacio-m) var(--espacio-l);
-  border-radius: var(--radio-m);
-  background: var(--superficie-cabecera);
-}
-
-.guest__logo-icon {
-  height: 3rem;
-  width: auto;
+  padding: var(--espacio-l) var(--espacio-m) var(--espacio-2xl);
 }
 
 .guest__card {
   width: 100%;
-  max-width: 28rem;
-  padding: var(--espacio-xl);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-l);
-  background: var(--superficie-tarjeta);
-  box-shadow: var(--sombra-m);
+  max-width: var(--ancho-formulario);
+}
+
+.guest__pie {
+  width: 100%;
+  max-width: var(--ancho-formulario);
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+@media (min-width: 48rem) {
+  .guest {
+    padding-top: 2.25rem;
+  }
+
+  .guest__pie {
+    text-align: left;
+    padding-inline: var(--espacio-xs);
+  }
 }

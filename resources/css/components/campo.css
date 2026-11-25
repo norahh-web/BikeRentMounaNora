@@ -1,0 +1,74 @@
+/* x-campo: etiqueta + input + error.
+   Estados: normal, hover, foco (:focus-visible), error (.campo--error), deshabilitado (:disabled).
+   Borde con --borde-campo (#877FA0) para llegar a 3:1 de contraste (WCAG 1.4.11). */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.campo__etiqueta {
+  font-size: var(--texto-s);
+  font-weight: var(--peso-medio);
+  color: var(--texto-principal);
+}
+
+.campo__input {
+  width: 100%;
+  min-height: 3.375rem;
+  padding: 0.75rem var(--espacio-m);
+  border: 1px solid var(--borde-campo);
+  border-radius: var(--radio-s);
+  background: var(--superficie-campo);
+  color: var(--texto-principal);
+  font-size: var(--texto-base);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.campo__input--area {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.campo__input::placeholder {
+  color: var(--texto-suave);
+  opacity: 1;
+}
+
+.campo__input:hover {
+  border-color: var(--texto-principal);
+}
+
+.campo__input:focus-visible {
+  border-color: var(--foco);
+  outline: 3px solid var(--foco);
+  outline-offset: 1px;
+}
+
+.campo__input:disabled {
+  border-color: var(--borde);
+  background: var(--superficie-deshabilitada);
+  color: var(--texto-suave);
+  cursor: not-allowed;
+}
+
+.campo__ayuda {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+}
+
+/* Error: borde más grueso + texto, no solo color (WCAG 1.4.1) */
+.campo--error .campo__input {
+  border: 2px solid var(--texto-error);
+  padding: calc(0.75rem - 1px) calc(var(--espacio-m) - 1px);
+}
+
+.campo__error {
+  font-size: var(--texto-s);
+  font-weight: var(--peso-medio);
+  color: var(--texto-error);
+}
+
+.campo__error::before {
+  content: '⚠ ';
+}

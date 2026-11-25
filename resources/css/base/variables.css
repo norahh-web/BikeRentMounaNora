@@ -20,6 +20,9 @@
   --color-verde-claro: #D5F6DF;
   --color-lima-claro: #F7FFBD;
   --color-azul-claro: #DEE8FF;
+  /*Estado de error*/
+  --color-error: #BA1A1A;
+  --color-error-claro: #FFDAD6;
 
   --gradiente-marca: linear-gradient(
     90deg,
@@ -67,5 +70,6 @@
 
   /* Layout y movimiento */
   --ancho-contenido: 75rem;
+  --ancho-formulario: 39.5rem;
   --transicion: 150ms ease;
 }

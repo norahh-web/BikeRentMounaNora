@@ -10,6 +10,12 @@
   --borde: #494553;
   --borde-campo: #948CAE;
   --foco: var(--color-lima);
+  --superficie-campo: #14121A;
+  --superficie-deshabilitada: #2B2731;
+  --superficie-exito: #1D4A31;
+  --superficie-error: #93000A;
+  --texto-error: #FFB4AB;
+  --foco-sobre-oscuro: var(--color-lima);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,5 +31,11 @@
     --borde: #494553;
     --borde-campo: #948CAE;
     --foco: var(--color-lima);
+    --superficie-campo: #14121A;
+    --superficie-deshabilitada: #2B2731;
+    --superficie-exito: #1D4A31;
+    --superficie-error: #93000A;
+    --texto-error: #FFB4AB;
+    --foco-sobre-oscuro: var(--color-lima);
   }
 }

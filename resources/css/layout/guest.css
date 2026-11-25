@@ -1,0 +1,31 @@
+.guest {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-l);
+  padding: var(--espacio-l) var(--espacio-m);
+}
+
+.guest__logo a {
+  display: inline-block;
+  padding: var(--espacio-m) var(--espacio-l);
+  border-radius: var(--radio-m);
+  background: var(--superficie-cabecera);
+}
+
+.guest__logo-icon {
+  height: 3rem;
+  width: auto;
+}
+
+.guest__card {
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--espacio-xl);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--superficie-tarjeta);
+  box-shadow: var(--sombra-m);
+}

@@ -1,0 +1,127 @@
+/* Quiénes somos */
+.nosotros {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-block: var(--espacio-l) var(--espacio-2xl);
+}
+
+.nosotros__foto {
+  display: grid;
+  place-items: center;
+  min-height: 12.5rem;
+  border-radius: var(--radio-l);
+  background: var(--gradiente-marca);
+}
+
+.nosotros__foto-texto {
+  font-size: var(--texto-s);
+  font-weight: var(--peso-medio);
+  color: var(--color-tinta-2);
+}
+
+.nosotros__subtitulo {
+  margin-bottom: var(--espacio-l);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-semibold);
+}
+
+.nosotros__lista {
+  display: grid;
+  gap: var(--espacio-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tarjeta de valor (sobre x-card) con barra de color */
+.valor {
+  height: 100%;
+}
+
+.valor::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 0.3125rem;
+  margin-bottom: var(--espacio-m);
+  border-radius: var(--radio-pill);
+  background: var(--color-violeta);
+}
+
+.valor--azul::before {
+  background: var(--color-azul);
+}
+
+.valor--verde::before {
+  background: var(--color-verde);
+}
+
+.valor__titulo {
+  margin-bottom: var(--espacio-s);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+}
+
+.valor__texto {
+  font-size: var(--texto-s);
+  color: var(--texto-suave);
+}
+
+/* Banda de cifras (violeta) */
+.cifras {
+  padding-block: 2.5rem;
+  background: var(--color-violeta);
+  color: var(--color-blanco);
+}
+
+.cifras__lista {
+  display: grid;
+  gap: var(--espacio-l);
+  margin-block: 0;
+}
+
+/* dt (texto) va antes que dd (número) en el HTML; visualmente el número arriba */
+.cifras__item {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.cifras__numero {
+  margin: 0;
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+  line-height: 1.1;
+  color: var(--color-lima);
+}
+
+.cifras__texto {
+  font-size: var(--texto-m);
+}
+
+@media (min-width: 48rem) {
+  .nosotros {
+    gap: 3.5rem;
+    padding-top: 4.5rem;
+  }
+
+  .nosotros__foto {
+    min-height: 19.75rem;
+  }
+
+  .nosotros__lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cifras {
+    padding-block: 4.5rem;
+  }
+
+  .cifras__lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cifras__numero {
+    font-size: var(--texto-3xl);
+  }
+}

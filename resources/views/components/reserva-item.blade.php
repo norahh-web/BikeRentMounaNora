@@ -23,5 +23,13 @@
     <div class="reserva-item__lado">
         <x-insignia :variante="$variante">{{ $texto }}</x-insignia>
         <p class="reserva-item__total">{{ $reserva->total_cost + 0 }} €</p>
+
+        @if ($reserva->status === 'pending')
+            <form class="reserva-item__cancelar" method="POST" action="{{ route('bookings.cancel', $reserva) }}">
+                @csrf
+                @method('PATCH')
+                <x-boton type="submit" variante="contorno" aria-label="Cancelar la reserva de {{ $reserva->bike->model }}">Cancelar</x-boton>
+            </form>
+        @endif
     </div>
 </x-card>

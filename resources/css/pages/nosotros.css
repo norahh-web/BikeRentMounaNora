@@ -37,6 +37,7 @@
 /* Tarjeta de valor (sobre x-card) con barra de color */
 .valor {
   height: 100%;
+  padding: var(--espacio-l);
 }
 
 .valor::before {

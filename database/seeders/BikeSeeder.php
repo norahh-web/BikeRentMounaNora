@@ -16,7 +16,7 @@ class BikeSeeder extends Seeder
                 'tipo' => 'Urbana',
                 'descripcion' => 'Cómoda y ligera para moverte por la ciudad.',
                 'price_per_hour' => 3,
-                'imagen' => 'images/bicis/urbana.svg',
+                'imagen' => 'images/bicis/urbana.jpg',
             ],
             [
                 'serial_number' => 'BK-ELE-001',

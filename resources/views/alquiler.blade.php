@@ -11,6 +11,15 @@
                 <x-chip :data-filtro="$tipo">{{ $tipo }}</x-chip>
             @endforeach
         </div>
+
+        <label class="alquiler__orden">
+            <span class="alquiler__orden-texto">Ordenar por</span>
+            <select class="alquiler__selector" id="orden-precio">
+                <option value="">Orden original</option>
+                <option value="asc">Precio por hora: de menor a mayor</option>
+                <option value="desc">Precio por hora: de mayor a menor</option>
+            </select>
+        </label>
     </section>
 
     <div class="alquiler__cuerpo" id="alquiler" data-bici-inicial="{{ $biciElegida }}">

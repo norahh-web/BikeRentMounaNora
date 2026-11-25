@@ -1,8 +1,7 @@
 <footer class="footer">
     <div class="footer__contenedor">
         <a class="footer__logo" href="{{ route('bikes.index') }}" aria-label="OnyarBizi, ir al inicio">
-            {{-- Logo provisional: se cambiará por <x-logo /> cuando A lo entregue --}}
-            <span class="footer__logo-texto">OnyarBizi</span>
+            <x-logo class="footer__logo-imagen" />
         </a>
 
         <p class="footer__descripcion">Alquiler de bicis por horas. Urbanas, eléctricas, de montaña e infantiles.</p>

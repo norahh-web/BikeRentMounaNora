@@ -6,12 +6,12 @@ use App\Models\Bike;
 
 class BikeController extends Controller
 {
-    // Public catalog of bikes
+    // Página de inicio: portada y bicis disponibles
     public function index()
     {
-        $bikes = Bike::all();
+        $bicis = Bike::where('status', 'available')->orderBy('id')->get()->unique('tipo')->values();
 
-        return view('bikes.index', compact('bikes'));
+        return view('home', compact('bicis'));
     }
 
     // Details of a specific bike

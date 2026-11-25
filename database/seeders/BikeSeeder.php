@@ -7,6 +7,14 @@ use Illuminate\Database\Seeder;
 
 class BikeSeeder extends Seeder
 {
+        /** Foto por tipo de bici (enlaces externos) */
+    public const IMAGENES = [
+        'Urbana' => 'https://cdn.sportscape.group/media/catalog/product/cache/1/image/800x800/040ec09b1e35df139433887a97daa66f/K/r/Kross_Nov26-TRANS-1-0-SR-black-grey-m_1.webp',
+        'Eléctrica' => 'https://es.fiido.com/cdn/shop/files/1-c11-new-logo_ab26d3fa-8fc1-4d5d-af57-2fb35fce6923_1000x.webp?v=1781166845',
+        'Montaña' => 'https://cdn11.bigcommerce.com/s-rlpcmj2qmd/images/stencil/2000x2000/products/73034/653525/131393__79507.1790636929.jpg?c=1',
+        'Infantil' => 'https://shopbici.com/wp-content/uploads/2026/09/woom-explore5-woom-red-tres-cuartos.jpg',
+    ];
+
     public function run(): void
     {
         $bicis = [
@@ -45,7 +53,9 @@ class BikeSeeder extends Seeder
         ];
 
         foreach ($bicis as $bici) {
-            Bike::create($bici);
+            $bici['imagen'] = self::IMAGENES[$bici['tipo']];
+            Bike::updateOrCreate(['serial_number' => $bici['serial_number']], $bici);
         }
+
     }
 }

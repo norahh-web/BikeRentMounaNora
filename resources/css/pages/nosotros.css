@@ -126,3 +126,15 @@
     font-size: var(--texto-3xl);
   }
 }
+/* Foto del equipo */
+img.nosotros__foto {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+  border-radius: var(--radio-l);
+}
+
+/* Mantiene visible la parte de arriba de la foto (las caras) al recortar */
+img.nosotros__foto {
+  object-position: center top;
+}

@@ -22,9 +22,7 @@
 
     <div class="nosotros contenedor">
         {{-- Sustituir por <img> con alt descriptivo cuando haya foto real del equipo --}}
-        <div class="nosotros__foto" role="img" aria-label="Foto del equipo de OnyarBizi (próximamente)">
-            <span class="nosotros__foto-texto" aria-hidden="true">Foto del equipo</span>
-        </div>
+        <img class="nosotros__foto" src="{{ asset('images/equipo.jpg') }}" alt="Equipo de OnyarBizi" width="1200" height="500">
 
         <section class="nosotros__valores" aria-labelledby="valores-titulo">
             <h2 id="valores-titulo" class="nosotros__subtitulo">Lo que nos mueve</h2>

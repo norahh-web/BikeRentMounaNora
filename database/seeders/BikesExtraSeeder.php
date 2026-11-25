@@ -29,7 +29,9 @@ class BikesExtraSeeder extends Seeder
         ];
 
         foreach ($bicis as $bici) {
-            Bike::firstOrCreate(['serial_number' => $bici['serial_number']], $bici);
+            $bici['imagen'] = BikeSeeder::IMAGENES[$bici['tipo']];
+            Bike::updateOrCreate(['serial_number' => $bici['serial_number']], $bici);
         }
+
     }
 }

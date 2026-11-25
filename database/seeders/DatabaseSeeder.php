@@ -2,25 +2,24 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Bike;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class BikeImagenesSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Asigna una foto a TODAS las bicis de la base de datos, según su tipo.
+     * Sirve también para bicis creadas con factories o a mano.
+     * Si el tipo no tiene foto propia, usa la de Urbana.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        $this->call(BikeSeeder::class);
+        Bike::query()->each(function (Bike $bici) {
+            $bici->update([
+                'imagen' => BikeSeeder::IMAGENES[$bici->tipo] ?? BikeSeeder::IMAGENES['Urbana'],
+            ]);
+        });
     }
 }
+
+
